@@ -20,6 +20,7 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard/user-dashboard.component';
 
 
 const routes: Routes = [
@@ -35,9 +36,9 @@ const routes: Routes = [
   { path: 'Clients', component: ClientsComponent },
   { path: 'Pricing', component: PricingComponent },
   { path: 'Subscribe', component: SubscribeComponent, outlet: 'popup' },
-  { path: 'Dashboard', loadChildren: () => UserDashboardModule, canActivate: [RouteguardService] },
+  // { path: 'Dashboard', loadChildren: () => UserDashboardModule, canActivate: [RouteguardService] },
   { path: 'Blog', component: BlogComponent, canActivate: [RouteguardService] },
-  // { path: 'Blog', component: BlogComponent },
+  { path: 'Dashboard', component: UserDashboardComponent, canActivate: [RouteguardService] },
   { path: 'Article/:id', component: ArticleComponent },
   { path: 'Article-edit/:id', component: ArticleEditComponent, canActivate: [RouteguardService] },
   { path: 'Article-create', component: ArticleCreateComponent, canActivate: [RouteguardService] },
