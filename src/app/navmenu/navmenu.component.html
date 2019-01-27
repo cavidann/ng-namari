@@ -1,0 +1,11 @@
+<ul *ngIf="menuOpen" [class.expanded]="menuOpen === true">
+  <li *ngFor="let menuitem of menu">
+    <a
+      (click)="changeStatus()"
+      routerLink="{{ menuitem.link }}"
+      routerLinkActive="active"
+      >{{ menuitem.title }}</a
+    >
+  </li>
+  <li *ngIf="isLoggedIn()"><a (click)="logout()" style="cursor:pointer">Logout</a></li>
+</ul>

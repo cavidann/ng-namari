@@ -1,0 +1,48 @@
+<!-- <section id="pricing" class="secondary-color text-center scrollto clearfix "> -->
+<div class="row clearfix">
+  <div class="container">
+    <div class="panel center-form">
+      <div class="panel-body">
+        <a (click)="cancel()" style="cursor: pointer">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+        <form
+          [formGroup]="subscribeForm"
+          (ngSubmit)="sendMessage(subscribeForm.value)"
+        >
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control input-lg"
+              name="email"
+              placeholder="Email"
+              formControlName="email"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="email.dirty && email.invalid"
+            >
+              <div *ngIf="(email?.errors)['required']" class="red">
+                E-mail Is required
+              </div>
+              <div *ngIf="(email?.errors)['email']" class="red">
+                E-mail false
+              </div>
+            </div>
+            <i class="fa fa-at form-control-icon" aria-hidden="true"></i>
+          </div>
+
+          <button
+            [disabled]="!subscribeForm.valid"
+            *ngIf="!sending"
+            type="submit"
+            class="btn btn-block btn-success"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </section> -->
